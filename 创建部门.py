@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+from selenium.webdriver.common.keys import Keys
 
 driver = webdriver.Chrome()
 driver.get("https://10.95.14.19")
@@ -29,55 +30,22 @@ time.sleep(2)
 addorg = driver.find_element_by_css_selector(".btn.md-raised.cf-btn-primary.add-task-btn.md-button.ng-scope.md-ink-ripple")
 addorg.click()
 
-# def isElementExist(element):
-#     flag = True
-#     try:
-#         driver.find_element_by_class_name(element)
-#         return flag
-#     except:
-#         flag = False
-#         return flag
-
 #输入部门名称，点击添加
 driver.find_element_by_name('orgName').send_keys('org1')
 addaction = driver.find_element_by_xpath("/html/body/div[1]/div/div/div[3]/button[1]")
 addaction.click()
 
-#批量删除部门
 
-#修改部门
 
-#查询部门
 
-#增加用户
 
-#增加检测规则模板
 
-#检测规则模板设为默认
 
-#添加检测目标模板
 
-#检测目标模板设为默认
 
-#添加自定义Top模板
 
-#自定义Top模板设为默认
 
-#导出操作日志
 
-#导出异常日志
-
-#批量下载系统日志
-
-#批量禁用基础信息库
-
-#批量禁用基础信息关联
-
-#添加maven
-
-#添加下载文件
-
-#添加标签管理
 
 
 
