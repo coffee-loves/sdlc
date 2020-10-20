@@ -1,6 +1,8 @@
+# encoding=utf-8
 from selenium import  webdriver
 import time
-
+from selenium.webdriver.common.keys import Keys
+import  os
 #login
 driver = webdriver.Chrome()
 driver.get("https://10.95.14.19")
@@ -35,10 +37,22 @@ time.sleep(1)
 driver.find_element_by_css_selector("a[ng-click='addLanguage(group)']").click()
 #选择项目
 driver.find_element_by_css_selector(".btn.btn-default.dropdown-toggle").click()
-time.sleep(1)
-A = driver.find_elements_by_css_selector("input[type = 'radio'][name = 'versionRadio']").pop(2).click()
-print(len(A))
-
-
+time.sleep(2)
+A = driver.find_elements_by_css_selector("input[type = 'radio'][name = 'versionRadio']").pop(1)
+A.send_keys(Keys.SPACE)
+#选择版本
+driver.find_elements_by_css_selector("button#single-button").pop().click()
+selectVersion = driver.find_elements_by_css_selector("input[type = 'radio'][name = 'versionRadio']").pop()
+selectVersion.send_keys(Keys.SPACE)
+#上传文件
+#driver.find_element_by_css_selector("#codeUpload").send_keys("C:/Users/Administrator/Desktop/自动化/企业版/uploadDoc/白名单.zip")
+driver.find_element_by_css_selector("#codeUpload").click()
+os.system("C:/Users/Administrator/Desktop/自动化/企业版/uploadDoc/uploadsript.exe")
+time.sleep(2)
+#点击下一步
+driver.find_element_by_css_selector(".btn.md-raised.cf-btn-primary.add-task-btn.md-button.ng-scope.md-ink-ripple").click()
+time.sleep(2)
+#点击添加
+driver.find_element_by_css_selector(".btn.md-raised.cf-btn-primary.add-task-btn.md-button.ng-binding.md-ink-ripple").click()
 #退出
 #driver.close()
